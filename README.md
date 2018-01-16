@@ -13,7 +13,7 @@ node js ^8.x.x
 Clona el repositoio 
 
 ```
-git clone url
+git clone https://github.com/josuedor/api-node-basic.git
 ```
 
 Instalas las dependencias

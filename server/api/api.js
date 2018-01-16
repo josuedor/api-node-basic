@@ -95,7 +95,6 @@ router.put('/tweet/:id', (req, res) => {
 	
 	for (let i = 0; i < database.length; i++){
 		if (database[i].id == req.params.id) {
-	   		//res.json(database[i])
 	   		database[i] = {
 	   			id: database[i].id,
 	   			contenido: req.body.contenido || database[i].contenido,
@@ -122,7 +121,6 @@ router.delete('/tweet/:id', (req, res) => {
 	
 	for (let i = 0; i < database.length; i++){
 		if (database[i].id == req.params.id) {
-	   		//res.json(database[i])
 	   		database.splice(i, 1)
 	   		flag = true;
 	   	}
