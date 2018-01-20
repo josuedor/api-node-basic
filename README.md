@@ -34,11 +34,11 @@ npm start
 
 * GET `/tweets` : Obtienes en formato json todos los tweets almacenados en memoria.
 
-* GET `/tweet/:id` : Obtienes en formato json el tweet correspondiente al :id enviado como parametro en la url.
+* GET `/tweets/:id` : Obtienes en formato json el tweet correspondiente al :id enviado como parametro en la url.
 	* **URL Params**
 	`id=[integer]`
 
-* POST `/tweet` : Crea un nuevo tweet en memoria.
+* POST `/tweets` : Crea un nuevo tweet en memoria.
 	* **Data Params:**
 	```json
 	contenido=[string]
@@ -55,7 +55,7 @@ npm start
 	}
 	 ```
 
-* PUT `/tweet/:id` : Edita el tweet correspondiente al :id enviado como parametro en la url.
+* PUT `/tweets/:id` : Edita el tweet correspondiente al :id enviado como parametro en la url.
 	* **URL Params**
 	`id=[integer]`
 
@@ -75,7 +75,7 @@ npm start
 	}
 	 ```
 
-* DELETE `/tweet/:id` : Elimina el tweet guardado en memoria.
+* DELETE `/tweets/:id` : Elimina el tweet guardado en memoria.
 	* **URL Params**
 	`id=[integer]`
 

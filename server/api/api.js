@@ -40,7 +40,7 @@ router.get('/tweets', (req, res) => {
     res.json(database)
 })
 
-router.get('/tweet/:id', (req, res) => {
+router.get('/tweets/:id', (req, res) => {
    let found = database.find(function(element) {
 	  return element.id == 1;
 	});
@@ -48,7 +48,7 @@ router.get('/tweet/:id', (req, res) => {
    res.json(found)
 })
 
-router.post('/tweet', (req, res) => {
+router.post('/tweets', (req, res) => {
     
 	if (!req.body.contenido || !req.body.autor || !req.body.ubicacion) {
 		res.json({
@@ -89,7 +89,7 @@ router.post('/tweet', (req, res) => {
 	}
 })
 
-router.put('/tweet/:id', (req, res) => {
+router.put('/tweets/:id', (req, res, next) => {
 	
 	let flag = false;
 	
@@ -109,13 +109,13 @@ router.put('/tweet/:id', (req, res) => {
    }
 
    if (flag) {
-   	res.json({message: `tweet editado correctamente.`})
+	   res.json({message: `tweet editado correctamente.`})
    }else{
-   	res.json({error: `hubo un problema al editar el tweet.`, info: `Quizá el :id del tweet no existe.`})
+	   next(new Error("hubo un problema al editar el tweet. Quizá el :id del tweet no existe."))
    }
 })
 
-router.delete('/tweet/:id', (req, res) => {
+router.delete('/tweets/:id', (req, res, next) => {
 	
 	let flag = false;
 	
@@ -127,9 +127,9 @@ router.delete('/tweet/:id', (req, res) => {
    }
 
    if (flag) {
-   	res.json({message: `tweet eliminado correctamente.`})
+	   res.json({message: `tweet eliminado correctamente.`})
    }else{
-   	res.json({error: `hubo un problema al eliminar el tweet.`, info: `Quizá el :id del tweet no existe.`})
+	   next(new Error("hubo un problema al eliminar el tweet. Quizá el :id del tweet no existe."))
    }
 })
 
