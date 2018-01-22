@@ -22,7 +22,7 @@ router.param('id', controller.findById)
 router.route('/:id')
     .get(controller.get)
     .put(controller.update)
-   // .delete(controller.delete)
+   //.delete(controller.delete)
     
 router.route('/:id/enable')
     .put(controller.enable)

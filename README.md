@@ -1,7 +1,5 @@
 # Basic API for node and mongodb
 
-Taller # 1 Topicos Especiales
-
 ### Prerequisites
 
 ```
@@ -97,7 +95,7 @@ npm start
 	firstname=[string]
 	lastname=[string]
 	email=[string]
-	enable=[string] (opcional)
+	enable=[string] (opcional) defult = true
 	```
 
 	* **Example:**
@@ -115,12 +113,10 @@ npm start
 
 	* **Data Params:**
 	```json
-	{
-		firstname=[string] (opcional)
-		lastname=[string] (opcional)
-		email=[string] (opcional)
-		enable=[string] (opcional)
-	}	
+	firstname=[string] (opcional)
+	lastname=[string] (opcional)
+	email=[string] (opcional)
+	enable=[string] (opcional)
 	```
 
 	* **Example:**
@@ -138,11 +134,15 @@ npm start
 
 	* **Data Params:**
 	```json
-	{
-		value=[boolean]
-	}
+	value=[boolean]
 	```
 
+* **Example:**
+	```json
+	{
+		"value": "false"
+	}
+	 ```
 
 ## License
 
