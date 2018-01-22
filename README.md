@@ -33,7 +33,7 @@ npm start
 
 ### Tweets
 
-* GET `/tweets` : Obtienes en formato json todos los tweets en la base de datos.
+* GET `/tweets` : Obtienes en formato json todos los tweets de usuarios habilitados en la base de datos.
 
 * GET `/tweets/:id` : Obtienes en formato json el tweet correspondiente al :id enviado como parametro en la url.
 	* **URL Params**
