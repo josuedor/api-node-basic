@@ -15,13 +15,17 @@ const Schema = mongoose.Schema
 const schema = new Schema({
     contenido: {
         type: String,
+        max: 280,
         required: true
     },
-    autor: {
+    user: {
         type: Schema.Types.ObjectId,
-        ref: 'author'
+        ref: 'user'
     },
-    ubicacion: String,
+    ubicacion: {
+        type: String,
+        max: 32,
+    },
 },{
     timestamps: true
 })

@@ -24,7 +24,7 @@ router.route('/:id')
     .put(controller.update)
    // .delete(controller.delete)
     
-router.route('/:id/disable')
-    .put(controller.disable)
+router.route('/:id/enable')
+    .put(controller.enable)
 
 module.exports = router;

@@ -1,11 +1,12 @@
-# Taller Node y Express
+# Basic API for node and mongodb
 
 Taller # 1 Topicos Especiales
 
 ### Prerequisites
 
 ```
-node js ^8.x.x
+- node js ^8.x.x
+- mongodb
 ```
 
 ### Installing
@@ -28,21 +29,23 @@ Ejecuta el proyecto
 npm start
 ```
 
-### Documentation
+## Documentation
 
 * GET `/` : Obtienes en formato html el mensaje de bienvenida a la API.
 
-* GET `/tweets` : Obtienes en formato json todos los tweets almacenados en memoria.
+### Tweets
+
+* GET `/tweets` : Obtienes en formato json todos los tweets en la base de datos.
 
 * GET `/tweets/:id` : Obtienes en formato json el tweet correspondiente al :id enviado como parametro en la url.
 	* **URL Params**
-	`id=[integer]`
+	`id=[string]`
 
-* POST `/tweets` : Crea un nuevo tweet en memoria.
+* POST `/tweets` : Crea un nuevo tweet en la base de datos.
 	* **Data Params:**
 	```json
 	contenido=[string]
-	autor=[string]
+	user=[string] (id del usuario especificado en el document users)
 	ubicacion=[string]
 	```
 
@@ -50,19 +53,19 @@ npm start
 	```json
 	{
 		"contenido": "El que se escama es porque es pecao.",
-		"autor": "lacachama",
+		"user": "5a651994c553170e6a85c581",
 		"ubicacion": "Santa Marta"
 	}
 	 ```
 
 * PUT `/tweets/:id` : Edita el tweet correspondiente al :id enviado como parametro en la url.
 	* **URL Params**
-	`id=[integer]`
+	`id=[string]`
 
 	* **Data Params:**
 	```json
 	contenido=[string] (opcional)
-	autor=[string] (opcional) (opcional)
+	user=[string] (opcional) (id del usuario especificado en el document users)
 	ubicacion=[string] (opcional)
 	```
 
@@ -70,14 +73,76 @@ npm start
 	```json
 	{
 		"contenido": "El que se escama es porque es pecao v2.0.",
-		"autor": "lacachama",
+		"autor": "5a651994c553170e6a85c581",
 		"ubicacion": "Santa Marta"
 	}
 	 ```
 
-* DELETE `/tweets/:id` : Elimina el tweet guardado en memoria.
+* DELETE `/tweets/:id` : Elimina el tweet guardado en la base de datos.
 	* **URL Params**
-	`id=[integer]`
+	`id=[string]`
+
+
+### Users
+
+* GET `/users` : Obtienes en formato json todos los usuarios habilitados en la base de datos.
+
+* GET `/users/:id` : Obtienes en formato json el usuarios correspondiente al :id enviado como parametro en la url.
+	* **URL Params**
+	`id=[string]`
+
+* POST `/users` : Crea un nuevo usuarios en la base de datos.
+	* **Data Params:**
+	```json
+	firstname=[string]
+	lastname=[string]
+	email=[string]
+	enable=[string] (opcional)
+	```
+
+	* **Example:**
+	```json
+	{
+		"firstname": "C. S",
+		"lastname": "Lewis",
+		"email": "lc@gmail.com"
+	}
+	 ```
+
+* PUT `/users/:id` : Edita el usuario correspondiente al :id enviado como parametro en la url.
+	* **URL Params**
+	`id=[string]`
+
+	* **Data Params:**
+	```json
+	{
+		firstname=[string] (opcional)
+		lastname=[string] (opcional)
+		email=[string] (opcional)
+		enable=[string] (opcional)
+	}	
+	```
+
+	* **Example:**
+	```json
+	{
+		"firstname": "Guillermo",
+		"lastname": "del Toro",
+		"email": "g.t@gmail.com"
+	}
+	 ```
+
+* PUT `/users/:id/enable` : Edita el estado del usuario guardado en la base de datos.
+	* **URL Params**
+	`id=[string]`
+
+	* **Data Params:**
+	```json
+	{
+		value=[boolean]
+	}
+	```
+
 
 ## License
 

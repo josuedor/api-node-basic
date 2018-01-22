@@ -3,7 +3,7 @@ const Model = require('./model');
 
 exports.findById = (req, res, next, id) => {
     Model.findById(id)
-        .populate('autor')
+        .populate('user')
         .then( doc => {
             if (doc) {
                 req.doc = doc;
@@ -23,7 +23,7 @@ exports.findById = (req, res, next, id) => {
 exports.all = (req, res, next) => {
     Model.
         find()
-        .populate('autor')
+        .populate('user')
         .then( docs => {
             res.json(docs)
         })
