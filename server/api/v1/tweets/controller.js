@@ -1,5 +1,6 @@
 
 const Model = require('./model');
+const _ = require('lodash');
 
 exports.findById = (req, res, next, id) => {
     Model.findById(id)
@@ -21,11 +22,23 @@ exports.findById = (req, res, next, id) => {
 };
 
 exports.all = (req, res, next) => {
+    const limit = Number(req.query.limit) || 10;
+    const skip = Number(req.query.skip) || 0;
+
     Model.
         find()
-        .populate('user')
+        .skip(skip)
+        .limit(limit)
+        .populate({
+            path: 'user',
+            match: { enable: true}
+        })
         .then( docs => {
-            res.json(docs)
+            res.json({
+                data: docs.filter(doc => doc._doc.user !== null),
+                limit,
+                skip
+            })
         })
         .catch( err => {
             next(new Error(err))

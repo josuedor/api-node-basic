@@ -20,11 +20,19 @@ exports.findById = (req, res, next, id) => {
 };
 
 exports.all = (req, res, next) => {
+    const limit = Number(req.query.limit) || 10;
+    const skip = Number(req.query.skip) || 0;
+    
     Model.
         find({enable: true})
-        .populate('author')
+        .skip(skip)
+        .limit(limit)
         .then( docs => {
-            res.json(docs)
+            res.json({
+                data: docs,
+                limit,
+                skip
+            })
         })
         .catch( err => {
             next(new Error(err))
