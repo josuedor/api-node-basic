@@ -4,23 +4,26 @@ const Schema = mongoose.Schema
 const schema = new Schema({
     firstname: {
         type: String,
+        max: 32,
         required: true
     },
     lastname: {
         type: String,
+        max: 32,
         required: true
     },
     email: {
         type: String,
+        max: 64,
         required: true
     },
-    disable: {
+    enable: {
         type: Boolean,
-        default: false
+        default: true
     }
     
 },{
     timestamps: true
 })
 
-module.exports = mongoose.model('author', schema)
+module.exports = mongoose.model('user', schema)

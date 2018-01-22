@@ -21,7 +21,7 @@ exports.findById = (req, res, next, id) => {
 
 exports.all = (req, res, next) => {
     Model.
-        find()
+        find({enable: true})
         .populate('author')
         .then( docs => {
             res.json(docs)
@@ -60,10 +60,12 @@ exports.update = (req, res, next) => {
         });
 };
 
-exports.disable = (req, res, next) => {
+exports.enable = (req, res, next) => {
    
-   Model.findByIdAndUpdate(req.params.id, { disable: true }, {upsert:true}, function(err, doc){
-        if (err) return res.send(500, { error: err });
+   const value = req.body.value;
+   
+   Model.findByIdAndUpdate(req.params.id, { enable:value }, {new: true}, function(err, doc){
+        if (err) return next(new Error(err));
         res.json(doc);
     });
 };
