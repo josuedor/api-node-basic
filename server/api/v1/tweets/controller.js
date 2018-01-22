@@ -1,6 +1,5 @@
 
 const Model = require('./model');
-const _ = require('lodash');
 
 exports.findById = (req, res, next, id) => {
     Model.findById(id)
