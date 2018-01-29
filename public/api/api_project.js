@@ -1,0 +1,1 @@
+define({  "name": "api-node-basic",  "version": "1.0.0",  "description": "Basic API for node and mongodb",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2018-01-29T03:50:41.318Z",    "url": "http://apidocjs.com",    "version": "0.17.6"  }});
