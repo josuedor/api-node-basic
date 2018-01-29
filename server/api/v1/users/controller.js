@@ -58,7 +58,7 @@ exports.all = (req, res, next) => {
     const skip = Number(req.query.skip) || 0;
     
     const items = Model
-        .find()
+        .find({ enable: true })
         .skip(skip)
         .limit(limit);
     

@@ -61,7 +61,8 @@ exports.all = (req, res, next) => {
         .find()
         .skip(skip)
         .limit(limit)
-        .populate("user");
+        .populate("user")
+        .sort( { createdAt: -1 } );
     
     const count = Model.count();
     
