@@ -1,33 +1,22 @@
-const mongoose = require("mongoose")
-const Schema = mongoose.Schema
-
-/*
-    {
-		id: 1,
-		contenido: "Perro que ladra no muerde @lalala",
-		autor: "@elpulgoso",
-		ubicacion: "Barranquilla",
-		fecha_creacion: moment().format(),
-		fecha_educion: moment().format()
-	}
-*/
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    contenido: {
+    content: {
         type: String,
         max: 280,
         required: true
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: "user"
     },
-    ubicacion: {
+    location: {
         type: String,
         max: 32,
     },
 },{
     timestamps: true
-})
+});
 
-module.exports = mongoose.model('tweet', schema)
+module.exports = mongoose.model("tweet", schema);
