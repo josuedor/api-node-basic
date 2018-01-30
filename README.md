@@ -27,7 +27,7 @@ Configura las variables de entorno de la aplicación, crea tu archivo .env en la
 IP=127.0.0.1
 PORT=3000
 DBURL=mongodb://localhost/database
-ORIGIN=*
+ORIGIN=http://localhost:8080
 CREDENTIALS=true
 ```
 
