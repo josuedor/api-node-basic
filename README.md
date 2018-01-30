@@ -27,7 +27,7 @@ Configura las variables de entorno de la aplicación, crea tu archivo .env en la
 IP=127.0.0.1
 PORT=3000
 DBURL=mongodb://localhost/database
-ORIGIN=*
+ORIGIN=http://localhost:8080
 CREDENTIALS=true
 ```
 
@@ -40,6 +40,10 @@ npm start
 ## Documentation
 
 [Documentación v1.0](https://josuedor.github.io/api-node-basic/)
+
+## Client
+
+[Api-node-basic-cli.](https://github.com/josuedor/api-node-basic-cli)
 
 ## License
 
